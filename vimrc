@@ -18,7 +18,7 @@
 set nocompatible
 filetype off
 " Turn on syntax highlighting.
-syntax enable
+syntax on
 
 " Disable the default Vim startup message.
 set shortmess+=I
@@ -89,19 +89,6 @@ inoremap <Right> <ESC>:echoe "Use l"<CR>
 inoremap <Up>    <ESC>:echoe "Use k"<CR>
 inoremap <Down>  <ESC>:echoe "Use j"<CR>
 
-"Some remaps for the NERDTreeFocus plugin
-nnoremap <leader>n :NERDTreeFocus<CR>
-nnoremap <C-n> :NERDTree<CR>
-nnoremap <C-f> :NERDTreeFind<CR>
-
-"Config for spell checks and to navigate them
-"[s jumps to the previous spelling mistake, picks the
-"first suggestion 1z= and then jumps back `]a
-"<c-g>u makes it possible to undo
-setlocal spell
-set spelllang=en_gb
-inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
-
 " The stuff to include Vundle and install plugins
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -134,22 +121,13 @@ Plugin 'https://github.com/tpope/vim-fugitive'
 " Install L9 and avoid a Naming conflict if you've already installed a
 " different version somewhere else.
 " Plugin 'ascenator/L9', {'name': 'newL9'}
-"Plugin 'valloric/youcompleteme'
+Plugin 'valloric/youcompleteme'
 Plugin 'scrooloose/nerdtree'
 Plugin 'bling/vim-airline'
-
-"Installing vimtex and come customization
 Plugin 'lervag/vimtex'
-let g:tex_flavor='latex'
-let g:vimtex_quickfix_mode=0
-set conceallevel=1
-let g:tex_conceal='abdmg'
+" Plugin to install the gruvbox colorsheme
+Plugin 'morhetz/gruvbox'
 
-"Installing and setting some stuff for code snippets
-Plugin 'sirver/ultisnips'
-let g:UltiSnipsExpandTrigger = '<tab>'
-let g:UltiSnipsJumpForwardTrigger = '<tab>'
-let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -165,3 +143,5 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line"
+colorscheme gruvbox
+set background=dark
